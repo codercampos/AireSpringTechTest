@@ -1,0 +1,26 @@
+﻿@using AireSpringTechTest.Data
+@using AireSpringTechTest.Utils
+@model IEnumerable<AireSpringTechTest.Data.EmployeeRecord>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Employee Name</th>
+        <th>Phone</th>
+        <th>Zip</th>
+        <th>Hire Date</th>
+    </tr>
+    @foreach (EmployeeRecord employee in Model)
+    {
+        <tr>
+            <td>@employee.EmployeeId</td>
+            <td>@employee.EmployeeLastName, @employee.EmployeeFirstName</td>
+            <td>@employee.EmployeePhone.FormatPhoneNumber()</td>
+            <td>@employee.EmployeeZip</td>
+            <td>@employee.HireDate.FormatDate()</td>
+        </tr>
+    }
+</table>
