@@ -12,6 +12,7 @@
         <th>Phone</th>
         <th>Zip</th>
         <th>Hire Date</th>
+        <th>Actions</th>
     </tr>
     @foreach (EmployeeRecord employee in Model)
     {
@@ -21,6 +22,7 @@
             <td>@employee.EmployeePhone.FormatPhoneNumber()</td>
             <td>@employee.EmployeeZip</td>
             <td>@employee.HireDate.FormatDate()</td>
+            <td><a asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> | <a asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a></td>
         </tr>
     }
 </table>

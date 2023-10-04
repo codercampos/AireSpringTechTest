@@ -7,7 +7,7 @@ public static partial class AppExtensions
     /// <summary>
     /// The template used to format a date element.
     /// </summary>
-    private const string DateTemplate = "MM/dd/yyyy";
+    public const string DefaultDateTemplate = "MM/dd/yyyy";
     
     /// <summary>
     /// The template used to format phone numbers in the app.
@@ -32,7 +32,7 @@ public static partial class AppExtensions
     /// <returns>The date with the desired format in DateTemplate</returns>
     public static string FormatDate(this DateTime dateTime)
     {
-        return dateTime.ToString(DateTemplate);
+        return dateTime.ToString(DefaultDateTemplate);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public static partial class AppExtensions
 
         if (IsCorrectPhoneFormat(phoneNumber))
         {
-            phoneNumber = PhoneFormat().Replace(phoneNumber, "");
+            phoneNumber = PhoneFormat().Replace(phoneNumber, PhoneNumberTemplate);
         }
 
         return phoneNumber;
